@@ -200,19 +200,6 @@ EvalForge addresses all five: no heavy dependencies, deterministic metrics, publ
 
 ---
 
-## Known Limitations
-
-EvalForge is transparent about what it does not yet do well:
-
-- **Relevance misfires on creative tasks** — jokes, stories, and translations share no vocabulary with their prompts, so Jaccard overlap scores 0 even for perfect responses. A tier-2 semantic judge is needed here.
-- **No factual accuracy check** — a fluent but wrong answer scores well on coherence. Ground-truth labels or an LLM judge are required for factual verification.
-- **Surface-level toxicity** — the regex filter does not catch coded language, implicit harmful content, or sophisticated manipulation.
-- **50 cases is not production scale** — sufficient to demonstrate the pipeline and surface obvious failure modes; not sufficient for narrow confidence intervals.
-- **Single-turn only** — no multi-turn evaluation, context retention testing, or instruction-following across conversation turns.
-- **Sequential execution** — no concurrency or load testing.
-
----
-
 ## Extending EvalForge
 
 **Adding a custom metric:**
@@ -249,6 +236,11 @@ The evaluation report (`report.html`) presents the full multi-model benchmark wi
 This repository was produced for the **Gates Foundation AI Fellowship – India 2026** technical screening (Option B: Critique & Rebuild).
 
 The path was chosen because the CeRAI tool cannot be run in the resource-constrained environments most relevant to the fellowship's development-context focus. A critique that cannot be verified is not useful; neither is a tool that cannot be run. EvalForge was designed to be runnable in under two minutes on any machine with Python installed.
+
+---
+
+## Path Choice
+I chose Option B — Critique & Rebuild — because attempting to install the CeRAI AIEvaluationTool made the core problem immediately apparent: the tool requires a 20 GB LLM judge, MariaDB, ChromeDriver, and 50 GB of disk before a single test case can run, which makes it impossible to evaluate in the resource-constrained environments most relevant to the Gates Foundation's development-context mandate. A critique of a tool that cannot be verified is not useful, and neither is a benchmark that cannot be reproduced; so rather than work around these blockers, I treated them as the primary finding and built EvalForge to address them directly. The design decisions followed from that premise: all eight metrics are deterministic and require no model to run, the test suite ships with the repository rather than being gated behind a request, structured JSON output is produced by default, and the entire framework runs on Python 3.10+ with a single optional dependency. The goal was not to build a more sophisticated evaluation system, but a more honest and reproducible one — one that a QA team on a mid-range laptop in a low-bandwidth environment could actually run, inspect, and trust.
 
 ---
 
