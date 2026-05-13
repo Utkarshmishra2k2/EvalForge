@@ -249,7 +249,8 @@ Register it in `runner.py` under `_score_response` and add a weight in `METRIC_W
 
 ---
 
-## Live Report
+## Live Reportn 
+[Click here to view the live report](https://ifsca-utkarsh.github.io/EvalForge/)
 
 The evaluation report (`report.html`) presents the full multi-model benchmark with an interactive leaderboard, per-metric breakdowns, key insights, the CeRAI critique, and a machine-readable JSON summary block. Open it locally or host it as a static file — no server required.
 
