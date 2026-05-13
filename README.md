@@ -78,18 +78,6 @@ python run_eval.py \
   --output results/run.json
 ```
 
-### Against an Anthropic endpoint
-
-```bash
-python run_eval.py \
-  --endpoint https://api.anthropic.com/v1/messages \
-  --endpoint-type anthropic \
-  --api-key $ANTHROPIC_API_KEY \
-  --model claude-haiku-4-5-20251001 \
-  --suite tests/test_suite.json \
-  --output results/run.json
-```
-
 ### Against a generic local endpoint
 
 ```bash
