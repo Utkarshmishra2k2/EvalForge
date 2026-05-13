@@ -18,7 +18,7 @@ def main():
     parser = argparse.ArgumentParser(description="EvalForge - conversational AI evaluator")
     parser.add_argument("--endpoint",      required=True,  help="Target endpoint URL")
     parser.add_argument("--endpoint-type", default="openai",
-                        choices=["openai", "generic"], help="Endpoint protocol")
+                        choices=["openai", "anthropic", "generic"], help="Endpoint protocol")
     parser.add_argument("--api-key",       default="",     help="API key / bearer token")
     parser.add_argument("--model",         default="gpt-4o-mini", help="Model name (openai mode)")
     parser.add_argument("--prompt-field",  default="message",     help="Prompt field (generic mode)")
