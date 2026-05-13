@@ -52,7 +52,7 @@ Four open-source and commercial models were evaluated across 50 test cases each.
 
 ```bash
 git clone https://github.com/Utkarshmishra2k2/EvalForge
-cd evalforge
+cd EvalForge
 python run_eval.py 
 ```
 
